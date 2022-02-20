@@ -1,6 +1,9 @@
 import argparse
 import sys
 from statistics import median
+from typing import List, Callable
+
+import bunch
 
 
 def create_parser():
@@ -14,6 +17,18 @@ def create_parser():
                         const=median, default=max,
                         help='find the median of integers (default: find the max)')
     return parser
+
+
+class MockParser:
+    """
+    This creates a fake set of commandline options for testing.
+    """
+    @staticmethod
+    def parse_args():
+        opt = bunch.Bunch()
+        opt['integers'] = [1, 2, 3, 4]
+        opt['accumulate'] = lambda x: median(x)
+        return opt
 
 
 def main():
