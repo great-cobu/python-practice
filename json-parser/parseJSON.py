@@ -50,7 +50,7 @@ def parse_json():
     #employee_dict = json.loads(f)
     #print(employee_dict)
 
-    with open('/Users/wishitventuresllc/Projects/github/python-practice/sample_json.json', 'r') as f:
+    with open('/sample_json.json', 'r') as f:
         data = json.load(f)
         print(json.dumps(data, indent=4, sort_keys=True)) # Pretty print
         # print(data)
